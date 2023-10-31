@@ -21,7 +21,20 @@
     <div id="navbar-placeholder"></div>
 
     <div class="title"><h1>Gestionar Pacientes</h1></div>
+   
 
+    <!-- Armando -->
+        <button class="isert-user" onclick="insetarUsuario()">Insertar Usuario</button>
+
+        
+        <h1>Búsqueda de Usuarios</h1>
+        <label for="buscar-usuario">Ingresa el nombre o cuenta a buscar:</label>
+        <input type="text" id="buscar-usuario">
+        <button onclick="buscarUsuario()">Buscar</button>
+  <!-- Armando -->
+
+
+     
     <div id="contenido" class="container">
         <table class="modern-table">
             <thead>
@@ -53,6 +66,7 @@
             controlUsuarios.mostrarUsuarios(true);
         });
     </script>
+    <div id ="buscar-user"></div>
 </body>
 
 </html>

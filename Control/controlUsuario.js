@@ -42,7 +42,8 @@ class ControlUsuario {
             const celdaCorreo = fila.insertCell(5);
             const celdarol = fila.insertCell(6);
 
-            celdaperfil.innerHTML = '<img src="/componentes/perfil_doc.png" width="60px" alt="" >  '
+            celdaperfil.innerHTML = "";
+            //'<img src="/componentes/perfil_doc.png" width="60px" alt="" >  '
             celdaid.innerHTML = usuario.id;
             celdaNombre.innerHTML = usuario.nombre;
             celdacuenta.innerHTML = usuario.cuenta;
@@ -82,6 +83,7 @@ class ControlUsuario {
 
 function editarUsuario(id) {
     const usuarioAEditar = controlUsuarios.usuarios.find((usuario) => usuario.id === id);
+    
     document.getElementById("editarUser").style.display = "block";
     if (usuarioAEditar) {
         let html = `
@@ -119,10 +121,49 @@ function guardarEdicion(id) {
     controlUsuarios.mostrarUsuarios(true);
 }
 
+
 function eliminarUsuario(nombre) {
     controlUsuarios.eliminar(nombre);
     controlUsuarios.mostrarUsuarios(true);
 }
+//armando
+function buscarUsuario() {
+    const textoBusqueda = document.getElementById("buscar-usuario").value.toLowerCase();
+    const listaUsuarios = document.getElementById("lista-usuarios");
+    listaUsuarios.innerHTML = "";
+    const usuariosEncontrados = controlUsuarios.usuarios.filter((usuario) => {
+        return (
+            usuario.nombre.toLowerCase().includes(textoBusqueda) ||
+            usuario.cuenta.toLowerCase().includes(textoBusqueda)
+        );
+    });
+    if (usuariosEncontrados.length === 0) {
+        alert("No se encontraron usuarios");
+        return;
+    }
+    usuariosEncontrados.forEach((usuario) => {
+        const fila = listaUsuarios.insertRow();
+        const celdaperfil = fila.insertCell(0);
+        const celdaid = fila.insertCell(1);
+        const celdaNombre = fila.insertCell(2);
+        const celdacuenta = fila.insertCell(3);
+        const celdaContraseña = fila.insertCell(4);
+        const celdaCorreo = fila.insertCell(5);
+        const celdarol = fila.insertCell(6);
+
+        celdaperfil.innerHTML = " ";
+        celdaid.innerHTML = usuario.id;
+        celdaNombre.innerHTML = usuario.nombre;
+        celdacuenta.innerHTML = usuario.cuenta;
+        celdaContraseña.innerHTML = usuario.contraseña;
+        celdaCorreo.innerHTML = usuario.correo;
+        celdarol.innerHTML = usuario.rol;
+    });
+}
+//armando
+
+
+
 
 const usuario1 = new Usuario("1", "Ramiro", "rduran", "abc", "rduran@gmail.com", "admin");
 const usuario2 = new Usuario("2", "Alberto", "aduran", "1234", "aquirogan@gmail.com", "medico");
