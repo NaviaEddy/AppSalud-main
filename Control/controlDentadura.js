@@ -27,6 +27,9 @@ class ControlDentadura {
           const celdaNombre = fila.insertCell(2);
           const celdacuenta = fila.insertCell(3);
           const tomografia = fila.insertCell(4);
+  
+          
+          
 
           const fila1 = listaDentaduras1.insertRow();
           const d1 = fila1.insertCell(0);
@@ -73,6 +76,7 @@ class ControlDentadura {
           celdaNombre.innerHTML = dentadura.nombre;
           celdacuenta.innerHTML = dentadura.cuenta;
           tomografia.innerHTML = dentadura.foto; 
+     
           d1.innerHTML = dentadura.dientes[0];
           d2.innerHTML = dentadura.dientes[1];
           d3.innerHTML = dentadura.dientes[2];

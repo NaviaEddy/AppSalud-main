@@ -12,6 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="/Modelo/usuario.js"></script>
     <script src="/Control/controlUsuario.js"></script>
+    <script src="/Styles/estilos.css"></script>
 
 </head>
 
@@ -25,16 +26,23 @@
 
     <!-- Armando -->
         <button class="isert-user" onclick="insetarUsuario()">Insertar Usuario</button>
+        <button class="listar" onclick="controlUsuarios.mostrarUsuarios(true)">listar</button>
 
-        
-        <h1>Búsqueda de Usuarios</h1>
-        <label for="buscar-usuario">Ingresa el nombre o cuenta a buscar:</label>
+     
+        <div  class="but-buscar" >
+                  <label for="buscar-usuario">Ingresa el nombre o apellido a buscar:</label>
         <input type="text" id="buscar-usuario">
-        <button onclick="buscarUsuario()">Buscar</button>
+        <button type="button" onclick="buscarUsuario()">Buscar</button>
+        </div>
+    
+       
+  
   <!-- Armando -->
 
 
-     
+
+ <div id="insertarUser" class ="user-form"></div>
+
     <div id="contenido" class="container">
         <table class="modern-table">
             <thead>
@@ -42,21 +50,21 @@
                     <th>Perfil</th>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Cuenta</th>
-                    <th>Contraseña</th>
+                    <th>apellido</th>
+                    <th>edad</th>
                     <th>Correo</th>
-                    <th>Rol</th>
+                    <th>sexo</th>
                     <th>Operaciones</th>
                 </tr>
             </thead>
             <tbody id="lista-usuarios"></tbody>
         </table>
 
-        <div id="editarUser" class="user-form">
-            <!-- Contenido del formulario de edición de usuario -->
-        </div>
-    </div>
+   
 
+    </div>
+        <div id="editarUser" class="edit-form"></div>
+ 
     <script>
         $(function () {
             $("#navbar-placeholder").load("BarraDeNavegacion.html");
